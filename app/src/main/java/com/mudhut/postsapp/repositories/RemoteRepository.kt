@@ -14,7 +14,6 @@ class RemoteRepository @Inject constructor(private val apiService: APIService) :
             val response = apiService.getUsers()
             if (response.isSuccessful) {
                 items = response.body()!!
-                Log.d("users", response.body().toString())
             }
         } catch (e: Exception) {
             Log.e("getUsers", e.message.toString())

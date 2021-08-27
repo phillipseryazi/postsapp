@@ -31,6 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
 }
 
 dependencies {
@@ -70,4 +76,18 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_component"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_component"
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_component"
+
+    // Coroutine Testing
+    def coroutine_testing = "1.5.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_testing"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_testing"
+
+    // Instant task executor rules
+    def executor_rules = "2.1.0"
+    testImplementation "androidx.arch.core:core-testing:$executor_rules"
+    androidTestImplementation "androidx.arch.core:core-testing:$executor_rules"
+
+    // Truth assertion library
+    testImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
 }
